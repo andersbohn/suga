@@ -1,0 +1,175 @@
+@main() {
+
+
+    <br/>
+    <br/>
+    <br/>
+
+    <section id="typography">
+        <div class="page-header">
+            <h1>How To get Scala into an existing Maven project</h1>
+
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <h3>Typesafe Activator</h3>
+
+                Tilføjelser til en eksisterende (parent) pom.xml:
+                Start med at definere et par versionsnumre i &lt;properties&gt;
+                <pre>
+&lt;scala.version&gt;2.10.2&lt;/scala.version&gt;
+&lt;maven-scala-plugin-version&gt;3.1.5&lt;/maven-scala-plugin-version&gt;
+                        </pre>
+For et multi-module projekt opsæt i &lt;dependencyManagement&gt;/&lt;dependencies&gt; i parent pom.xml:
+                <pre>
+                &lt;dependency&gt;
+       &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+       &lt;artifactId&gt;scala-library&lt;/artifactId&gt;
+       &lt;version&gt;${scala.version}&lt;/version&gt;
+       &lt;scope&gt;provided&lt;/scope&gt;
+     &lt;/dependency&gt;
+     &lt;dependency&gt;
+       &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+       &lt;artifactId&gt;scala-compiler&lt;/artifactId&gt;
+       &lt;version&gt;${scala.version}&lt;/version&gt;
+       &lt;scope&gt;provided&lt;/scope&gt;
+     &lt;/dependency&gt;
+     &lt;dependency&gt;
+       &lt;groupId&gt;org.scalatest&lt;/groupId&gt;
+       &lt;artifactId&gt;scalatest_2.10&lt;/artifactId&gt;
+       &lt;version&gt;1.9.1&lt;/version&gt;
+       &lt;scope&gt;test&lt;/scope&gt;
+     &lt;/dependency&gt;
+Og i &lt;pluginManagement&gt;/&lt;plugins&gt;:
+&lt;plugin&gt;
+        &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${maven-scala-plugin-version}&lt;/version&gt;
+      &lt;/plugin&gt;
+                        </pre>
+
+                        i pom.xml, for modulet, som skal udvides med Scala tilføjes i &lt;dependencies&gt;:
+                <pre>
+&lt;dependency&gt;
+   &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+   &lt;artifactId&gt;scala-library&lt;/artifactId&gt;
+   &lt;scope&gt;provided&lt;/scope&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+   &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+   &lt;artifactId&gt;scala-compiler&lt;/artifactId&gt;
+   &lt;scope&gt;provided&lt;/scope&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+   &lt;groupId&gt;org.scalatest&lt;/groupId&gt;
+   &lt;artifactId&gt;scalatest_2.10&lt;/artifactId&gt;
+   &lt;scope&gt;test&lt;/scope&gt;
+ &lt;/dependency&gt;
+Endelig udvides med plugins, først i &lt;build&gt;/&lt;plugins&gt;:
+&lt;plugin&gt;
+   &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;
+   &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;
+   &lt;version&gt;${maven-scala-plugin-version}&lt;/version&gt;
+   &lt;configuration&gt;
+     &lt;recompileMode&gt;incremental&lt;/recompileMode&gt;
+     &lt;useZincServer&gt;true&lt;/useZincServer&gt;
+   &lt;/configuration&gt;
+   &lt;executions&gt;
+     &lt;execution&gt;
+       &lt;id&gt;compile&lt;/id&gt;
+       &lt;goals&gt;
+         &lt;goal&gt;compile&lt;/goal&gt;
+       &lt;/goals&gt;
+       &lt;phase&gt;compile&lt;/phase&gt;
+     &lt;/execution&gt;
+     &lt;execution&gt;
+       &lt;id&gt;test-compile&lt;/id&gt;
+       &lt;goals&gt;
+         &lt;goal&gt;testCompile&lt;/goal&gt;
+       &lt;/goals&gt;
+       &lt;phase&gt;test-compile&lt;/phase&gt;
+     &lt;/execution&gt;
+     &lt;execution&gt;
+       &lt;phase&gt;process-resources&lt;/phase&gt;
+       &lt;goals&gt;
+         &lt;goal&gt;compile&lt;/goal&gt;
+       &lt;/goals&gt;
+     &lt;/execution&gt;
+   &lt;/executions&gt;
+ &lt;/plugin&gt;
+
+ &lt;plugin&gt;
+   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+   &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+   &lt;version&gt;2.0.2&lt;/version&gt;
+   &lt;executions&gt;
+     &lt;execution&gt;
+       &lt;phase&gt;compile&lt;/phase&gt;
+       &lt;goals&gt;
+         &lt;goal&gt;compile&lt;/goal&gt;
+       &lt;/goals&gt;
+     &lt;/execution&gt;
+   &lt;/executions&gt;
+ &lt;/plugin&gt;
+Og i &lt;reporting&gt;/&lt;plugins&gt; :
+    &lt;plugin&gt;
+      &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;
+      &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;
+      &lt;version&gt;${maven-scala-plugin-version}&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;scalaVersion&gt;${scala.version}&lt;/scalaVersion&gt;
+        &lt;recompileMode&gt;incremental&lt;/recompileMode&gt;
+        &lt;useZincServer&gt;true&lt;/useZincServer&gt;
+&lt;/configuration&gt;
+    &lt;/plugin&gt;
+                        </pre>
+<p>Det burde nu være muligt at køre compilere scala-kode placeret i folderne src/main/scala og src/test/scala
+Bemærk at de to indstillinger recompileCode og useZincServer kan kræve installation af Zinc. (evt virker blot brew install zinc, derefter zinc -start)
+Cirkulære referencer mellem Java og Scala-kode bør også fungere.
+Flere underprojekter med samme Scala-setup
+Dette er også muligt ved at opsætte en profil i &lt;profiles&gt;, som er afhængig af tilstedeværelsen af scala-source-folders, fx (ret src/main/scala, hvis der kun er testfiler i modulerne)
+<pre>
+&lt;profile&gt;
+       &lt;id&gt;Scala Project&lt;/id&gt;
+       &lt;activation&gt;
+         &lt;file&gt;
+           &lt;exists&gt;src/main/scala&lt;/exists&gt;
+         &lt;/file&gt;
+       &lt;/activation&gt;
+       &lt;build&gt;
+         &lt;plugins&gt;
+           &lt;plugin&gt;
+             &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;
+             &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;
+             &lt;version&gt;${maven-scala-plugin-version}&lt;/version&gt;
+             &lt;executions&gt;
+               &lt;execution&gt;
+                 &lt;id&gt;scala-compile-first&lt;/id&gt;
+                 &lt;phase&gt;process-resources&lt;/phase&gt;
+                 &lt;goals&gt;
+                   &lt;goal&gt;add-source&lt;/goal&gt;
+                   &lt;goal&gt;compile&lt;/goal&gt;
+                 &lt;/goals&gt;
+               &lt;/execution&gt;
+               &lt;execution&gt;
+                 &lt;id&gt;scala-test-compile&lt;/id&gt;
+                 &lt;phase&gt;process-test-resources&lt;/phase&gt;
+                 &lt;goals&gt;
+                   &lt;goal&gt;compile&lt;/goal&gt;
+                   &lt;goal&gt;testCompile&lt;/goal&gt;
+                 &lt;/goals&gt;
+               &lt;/execution&gt;
+             &lt;/executions&gt;
+           &lt;/plugin&gt;
+         &lt;/plugins&gt;
+       &lt;/build&gt;
+     &lt;/profile&gt;
+                </pre>
+
+
+            </div>
+        </div>
+    </section>
+
+}

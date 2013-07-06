@@ -4,6 +4,14 @@
 
 # Home page
 GET     /                           controllers.Application.index
+GET     /why                        controllers.Application.whyScala
+GET     /get_started                controllers.Application.getStarted
+GET     /howtos                     controllers.Application.howTos
+GET     /maven                     controllers.Application.howToMaven
+GET     /fun                        controllers.Application.funWithScala
+GET     /links                      controllers.Application.links
+GET     /sceptics                   controllers.Application.scalaSceptics
+GET     /study                   controllers.Application.studyScala
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

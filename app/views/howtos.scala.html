@@ -1,0 +1,74 @@
+@main() {
+
+
+    <br/>
+    <br/>
+    <br/>
+
+    <section id="typography">
+        <div class="page-header">
+            <h1>How To's?</h1>
+
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <h3>Typesafe Activator</h3>
+                <p>
+                    Installation kan ske via Typesafes Activator:
+                </p>
+                <a hred="http://typesafe.com/platform/getstarted">http://typesafe.com/platform/getstarted</a>
+                <p>
+                    Dette giver en GUI-wizard til lege med forskellige projekttemplates fra Typesafe-platformen
+                </p>
+                <h3>Installer Scala SDK</h3>
+                <h4>OS X</h4>
+<pre>
+brew install scala
+sudo port install scala2.10</pre>
+                <p>Eller</p>
+                <p>Download SDK til dit OS her:</p>
+                <a href="http://www.scala-lang.org/downloads">http://www.scala-lang.org/downloads</a>
+                <h3>Installer Play Framework</h3>
+                <h4>OS X</h4>
+                <pre>
+                    brew install play</pre>
+                <p>Eller download:</p>
+                <a href="http://www.playframework.com/download">http://www.playframework.com/download</a>
+
+                <h3>Scala support i IntelliJ</h3>
+                <p>Plugins hhv  Scala, Playframework Support og og Play 2.0 Support</p>
+                <h3>Scala support i Eclipse aka ScalaIDE</h3>
+                <a href="http://scala-ide.org/">http://scala-ide.org</a>
+                <h3>Scalakode</h3>
+                <h4>REPL</h4>
+                <p>Med Scala og/eller Play installeret, er den nemmeste måde at komme igang med at lege Scala på REPL.
+                    fra kommandolinjen, kør scala</p>
+                <p>Hvis man skal bruge klasser fra eksterne API'er, også eksisterende java API'er, kan man bruge kommanden :cp &lt;path&gt; til deres jar eller directories. Virker det ikke, kan REPL startes med -cp, fx:</p>
+                <pre>scala -cp "tools/jfreechart-1.0.13/lib/*"</pre>
+                <h4>SBT og Play Console</h4>
+                <p>I en play applikation eller ethvert SBT-projekt kan man fra kommandolinjen skrive sbt console og få en REPL med fuld classpath til applikationen.
+                    Scala Worksheets</p>
+                <p>I Eclipse eller IntelliJ med Scala support installeret (jf ovenstående), åben et nyt worksheet. Hver gang koden gemmes afvikles scriptet og resultatet indsættes til højre (I Idea, som har autosave skal man sige kør worksheet, grøn trekant eller alt-æble-W).</p>
+                <p>Dette er særligt brugbart ved test af lidt større stykker kode, som i REPL kan blive temmelig snørklet.</p>
+                <p>I et projekt/modul med Scala-facet, vælg New -> ScalaWorksheet.</p>
+                <img src="@routes.Assets.at("images/idea-scala-worksheet.png")">
+                <h4>Play Framework</h4>
+                <p>Fungerer som Rails, dvs, fra kommandolinjen</p>
+                <ol>
+                    <li>play new &lt;appname&gt;</li>
+                    <li>skift til folderen, cd &lt;appname&gt;</li>
+                    <li>play run</li>
+                    <li>åben browser på localhost:9000</li>
+                </ol>
+                <p>For at få et IDEA-projekt kør kommandoen idea (Fuld SBT-import kommer i IntelliJ 13)</p>
+                <h3>Introduktion i eksisterende Maven projekt</h3>
+                <p>Fx mhp at starte op med unit-tests i ScalaTest.</p>
+                <p>Ikke så slemt - ny Maven Scala Plugin understøtter Zinc og inkrementel kompiler, hvilket giver roundtrip-tid omtrent som SBT.</p>
+                <p>Deltajer med pom.xml-eksempler her: <a href="/maven">Scala Maven Setup</a></p>
+
+            </div>
+        </div>
+    </section>
+
+}

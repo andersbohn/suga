@@ -1,0 +1,93 @@
+@main() {
+
+
+    <br/>
+    <br/>
+    <br/>
+
+    <section id="typography">
+        <div class="page-header">
+            <h1>Why use Scala?</h1>
+
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <h3>It's about time!</h3>
+
+                Java has been around for many years, and has completely dominated a big part of the business. Despite of a
+                sceptical reception in the early years, "too slow", "too much like C", it has proven to be a strong language together with the JVM,
+                making it substantially easier to build big, performing and stable solution in a number of areas,
+                including the enterprise business tier.
+
+                The language has had it's natural evolution, with significant improvements on the way, but all in all,
+                changes have come very slowly, especially compared with the speeds of the modern internet world.
+
+                A new language is a natural consideration in this situation.
+
+                <h3>The Scalable language</h3>
+
+                The language is all about scalability - from small scripts and DSL's, to complex parser designs, to high
+                performing server software, to DRY business code.
+
+                The functional programming in Scala lends is very well suited to distributed systems and parallel execution
+                without the dangers of locks.
+
+                <h3>The static language that feels dynamic<small>1</small></h3>
+
+                <blockquote>
+                    <p>[Scala] decreases the cost of typesafety AND increases the value!</p>
+                    <small>Bill Venners, <cite title="Feel of Scala">Feel of Scala</cite></small>
+                </blockquote>
+
+
+                Even with a kick ass top of the class type-system, the generel piece of code will be very crisp:
+                <pre>val map = Map("x",19)</pre>
+                will construct a Map with the types [String,Int]
+
+                In most cases, the typeinformation in the code will roughly be equivalent to the information it
+                carries, eg "x is a String".
+
+                This is good for the fingers, easy on the eyes and it sharpens your programmers brain!
+
+                <h3>The static dynamic language</h3>
+                <p>
+                Scalas advanced type system supports structural types, which means that you can do some of the dynamic
+                language specials like duck typing in a statically compiled way.
+</p>
+            <p>Here we define a function, that will accept any object regardless of its type, as long as it defines a method 
+	named 'close', that takes no parameters and returns Unit:
+                <pre>
+                    def using[T &lt;: { def close(): Unit }](object: T) ....
+                </pre>
+ You could happily feed it JDBC-connections and File-handles, and the compiler will immediately complain, if you get it wrong.
+</p>
+	<p>
+		As of Scala 2.10 you can even use the new feature <i>dynamics</i> which in effect will let you define an object, that the 
+		compiler will let you access in ways, that will not be checked until runtime. This might be reasonable, when you interact with other 
+		components, that will return dynamic data (eg JSON). Before you go crazy with this, please note alternatives, including future ones, involving something like Compiler Type Macros.
+	</p>
+
+                <h3>But why not choose Clojure/Groovy/Go/Ceylon/JRuby/Jython/Javascript/...</h3>
+
+                Well you should certainly have a go at other languages as well. Like travelling to foreign places, thou
+                pleasant, will also often make you appreciate your home more. If your heart is with the dynamic languages
+                and runtime types, that will cut down your choices, and you might not enjoy Scala as much.
+                But if you liked Java and are looking for an upgrade, you must at the very least take Scala for a spin.
+
+                <h3>And much more</h3>
+
+                <p>Read more <a href="http://www.scala-lang.org/node/25" >here</a>
+                    </p>
+
+                <small><p>1) Bruce Eckel, <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=328540">Scala: The Static Language that Feels Dynamic</a>
+                </p></small>
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+}
