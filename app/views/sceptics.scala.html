@@ -13,10 +13,119 @@
 
         <div class="row">
             <div class="span12">
-                <h3>Coming up soon!</h3>
+                <h3>How could you not like Scala?</h3>
+                <p>There are many reasons you might now wan't to use Scala, as simply no specific language or framework
+                    is perfect in and of it self, and none are perfectly suited for every task or every person.</p>
+                <p>Then there's al that religious passion of whatever happens to be your belief - why it's so widespread
+                    in a world, that should boil down to fully dertermined zeros and ones, is something of a mystery.
+                </p>
+                <p>What we wish to address in these examples are false claims and persistent myths about Scala. Some
+                    of it will be off course be our opinion, but we provide some links to both sides of the argument, and
+                    if you worry about a particular point for you business case, you should off course look into the matter.
+                </p>
+                <p>Two red threads in this: time related critisism, that is some aspect that has now been fixed, but that
+                    googling the issue will produce a plethora of hits with this particular problem. In some cases these
+                    are refuted as easily as "Fixed in version x.x".
+                </p>
+                <p>The other is pure tradeoff: do you need extreme runtime execution speed, maybe choose C or even
+                    Assembler. Or maybe Java hits a perfect spot for your exact challenge. Then again, if you can distribute
+                    computation, then you might prefer a language overhead to gain easy and stable distribution design. Something
+                    like Erlang or Akka.
+                </p>
+                <p>So we'll try to get the facts straight, but you'll have to research and think for yourself before making
+                    any big decision including something as fundamental as picking a primary programming language.
+                </p>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="span6">
+                <h3>There are not enough skilled Scala programmers out there?</h3>
+                <p>This statement will actually mostly hold true in any expanding field, since there are none to start,
+                    and the expansion will take vacuum up everything until some critical point. It's a question of
+                    the hen and the egg to a certain degree, and it is less troublesome when the business does the pulling -
+                    eg app development, we're every other developer quickly picks up ObjectiveC for dummies.
+                    And Scala is a different beast, driven primarily by developers! </p>
+                <p>On the other hand, if you would always as a company stay with the biggest pool of potential developers,
+                    that will be the mainstream, you will compete with everyone else with the same mindset, and you will have
+                    to look for a place to get off, so you don't end up with huge installations in an out-dated technology.</p>
+                <p>The most important point though, for a new language is, that moving your developer skills into new
+                    territory, and keeping you skillset up-to-date in general, is the mark of a dedicated developer. Wether
+                    through sparetime activities or company paid time, these guys don't sit with their hands in their laps,
+                    waiting for someone else to figure out, what the next technology is. Some of them are early adopters,
+                    some are going to be the "early majority". Some of them will be stuck in a less inspiring job, where
+                    they are not allowed to experiment with new languages, at least not in any important project.
+                </p>
+                <p>In a poll<i style="color: red;">(source)</i>
+                    , 85% of all developers said, that they would like to work in another language than their current one.</p>
+            </div>
+            <div class="span6">
+                <h3>Is Scala to hard/complex/messy/big for the average developer?</h3>
+                <p>No! It will probably be harder to learn for some, than others, and it certainly is a task to
+                    know all of Scala well.</p>
+                <p>For a given project/developer team, the challenge will be to work out a reasonable standard for their
+                    usage of the language. Most teams do that with Java as well. Or with choosing libraries and tooles.
+                    There are projects that don't allow the use of generics, because it isn't well known
+                    throughout the maintenance team. Or the ternary operator, or recursive algorithms, break/continue
+                    or sideeffects in @("&") vs @("&&")...</p>
+                <p>This a normal process in any context of software development, and the good news is, there are plenty of
+                    well known ways to address it:</p>
+                <ul>
+                    <li>Code reviews</li>
+                    <li>Pair Programming</li>
+                    <li>Code camps</li>
+                    <li>Sharing experience via forum or mail</li>
+                    <li>Maintaining or using style and code guidelines</li>
+                    <li>Using tools in IDE or automated build software, that checks code constructs, quality,
+                        LOC per method/class etc</li>
+                    <li>Cycling people periodically between teams</li>
+                    <li>And many more: participating in open source projects, courses, books, tutorials</li>
+                </ul>
+                <p>If one or more on staff cannot keep up with the rest, that is indeed a problem, but it would
+                    likely occur in any language, and it's probably a sign, that some of the guys are just not up to task.
+                    If a couple of smart guys are leaving everyone else in the dust, you must make sure it's not just a
+                    case of "smart coders", making themselves indispensable by writing impossible to understand code. A
+                    "good" programmer, almost by definition, should write code that both the computer and every other
+                    actual programmer will have a fighting chance of understanding. Including, by the way, said good
+                    programmer coming back to the code six months later.</p>
+                    <p>Which is which, and where to draw the line will be a tough call on any team, for the manager
+                        and the people involved,
+                    but it's an inherent one and not tied to any specific language or technology.</p>
+                <p>
+                    As an aside, you could in fact argue, that Scala is easier as a first language, given that it
+                    has less of the ceremony and dogmatic constructs, that dates back in time, and that newcomers
+                    won't know in advance. <span style="color:red">(Eckel)</span>
+                    You'd start with easy little case clases and move on from there.</p>
 
             </div>
 
+        </div>
+        <div class="row">
+            <div class="span6">
+                <h3>Dynamic typing vs static typing</h3>
+                <p>Lots of good arguments out the on this one, and a huge amount of worthless flame wars too.</p>
+                <p>We believe - being Scala developers - that static typing helps us in a number of ways,
+                that dynamic typing does not. The compiler catches errors, and gives us immediate feedback on them,
+                    errors that we then don't need to catch when testing - automatically or otherwise.
+                It allows the IDE to provide good navigation features and deterministic refactorings, which eases cleanups
+                    in a big codebase.</p>
+                <p>Now, experienced programmers in dynamic languages may work in different ways, and be able to balance
+                    these benefits of static typing with other aspects of the trade. Or they work in a setting, that doesn't
+                    require rigorous testing of menial details. Say web development, that will be thrown out in half a year
+                    anyway. That is ok.</p>
+                <p>One point though: Just because the type system somehow irritates you, this doesn't automatically mean it's bad.
+                    Like seatbealts in a car. Make sure you choose based on solid experience and skill.</p>
+            </div>
+            <div class="span6">
+                <h3>But the type system is extremely complex</h3>
+                <p>The complexity basically matches the expressiveness and power of the type system. It's not completely
+                    invalid to give up on this complexity, and switch to one of the non-statically typed languages,
+                    but really, unless you are a library designer, most of the hard work has already been done in Scala.</p>
+                <p>In everyday, practical use, it just works behind the scenes, and most of the time, it's just
+                    sensible to say exactly in the code, what kind of data a given
+                    function expects, and what it returns. </p>
+            </div>
 
         </div>
 
