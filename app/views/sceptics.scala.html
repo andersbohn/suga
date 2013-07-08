@@ -64,6 +64,7 @@
                 <h3>Is Scala to hard/complex/messy/big for the average developer?</h3>
                 <p>No! It will probably be harder to learn for some, than others, and it certainly is a task to
                     know all of Scala well.</p>
+                <p>But the basic contention is simply way too defeatist - eg notoriously posited by Pollak <sup data-text="Pollak"><a href="#1">1</a></sup>.</p>
                 <p>For a given project/developer team, the challenge will be to work out a reasonable standard for their
                     usage of the language. Most teams do that with Java as well. Or with choosing libraries and tooles.
                     There are projects that don't allow the use of generics, because it isn't well known
@@ -89,8 +90,8 @@
                     "good" programmer, almost by definition, should write code that both the computer and every other
                     actual programmer will have a fighting chance of understanding. Including, by the way, said good
                     programmer coming back to the code six months later.</p>
-                    <p>Which is which, and where to draw the line will be a tough call on any team, for the manager
-                        and the people involved,
+                <p>Which is which, and where to draw the line will be a tough call on any team, for the manager
+                    and the people involved,
                     but it's an inherent one and not tied to any specific language or technology.</p>
                 <p>
                     As an aside, you could in fact argue, that Scala is easier as a first language, given that it
@@ -106,9 +107,9 @@
                 <h3>Dynamic typing vs static typing</h3>
                 <p>Lots of good arguments out the on this one, and a huge amount of worthless flame wars too.</p>
                 <p>We believe - being Scala developers - that static typing helps us in a number of ways,
-                that dynamic typing does not. The compiler catches errors, and gives us immediate feedback on them,
+                    that dynamic typing does not. The compiler catches errors, and gives us immediate feedback on them,
                     errors that we then don't need to catch when testing - automatically or otherwise.
-                It allows the IDE to provide good navigation features and deterministic refactorings, which eases cleanups
+                    It allows the IDE to provide good navigation features and deterministic refactorings, which eases cleanups
                     in a big codebase.</p>
                 <p>Now, experienced programmers in dynamic languages may work in different ways, and be able to balance
                     these benefits of static typing with other aspects of the trade. Or they work in a setting, that doesn't
@@ -127,6 +128,31 @@
                     function expects, and what it returns. </p>
             </div>
 
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <h3>Performance</h3>
+                <p style="color:red">
+                    Scala er et JVM sprog og performer for det meste som Java. En række features er dyrere end
+                    tilsvarende håndkode i Java (fx list.map() og tilsv. for loops modsat do/while, som performer som Java).</p>
+                <p style="color:red">
+                    Det hører med i implementeringsvalg, for de fleste projekter hamrende irrelevant og minder slående
+                    om diskussionerne i overgangen fra C -> Java. Højere niveau => mere computerekraft. Det sikrer
+                    moores lov os. Den knappe resource er oftest udviklerens tids (særligt i vedligeholdelsesfasen..)</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <h3>Notes and references</h3>
+                <ol>
+                    <li><a name="1"></a><a href="http://blog.goodstuff.im/yes-virginia-scala-is-hard">Pollak, <i>Yes, Virginia, Scala is hard!</i></a></li>
+
+                </ol>
+
+
+            </div>
         </div>
 
     </section>
